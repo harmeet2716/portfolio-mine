@@ -357,15 +357,25 @@ nav {
 <body>
 
   <!-- NAV -->
- <ul class="nav-links">
-  <li><a href="#about">About</a></li>
-  <li><a href="#skills">Skills</a></li>
-  <li><a href="#projects">Projects</a></li>
-  <li><a href="#training">Training</a></li>
-  <li><a href="#achievements">Wins</a></li>
-  <li><a href="#education">Education</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+ <nav>
+  <div class="nav-name">Harmeet</div>
+
+  <!-- HAMBURGER -->
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#achievements">Wins</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 
   <!-- HERO -->
   <section id="hero">
@@ -732,20 +742,6 @@ nav {
     Designed &amp; built by Harmeet Singh &nbsp;&middot;&nbsp; 2025
   </footer>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 70);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => io.observe(el));
-
-    
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>

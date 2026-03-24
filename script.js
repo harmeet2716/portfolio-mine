@@ -1,8 +1,21 @@
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
+/* TOGGLE MENU (open + close on button click) */
 toggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
+});
+
+/* CLOSE MENU WHEN CLICKING ANY LINK */
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+document.addEventListener("click", (e) => {
+  if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+    navLinks.classList.remove("active");
+  }
 });
 
 const reveals = document.querySelectorAll('.reveal');

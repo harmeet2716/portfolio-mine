@@ -186,39 +186,7 @@
     .project-link:hover { gap: 13px; }
     .project-link svg { width: 13px; height: 13px; }
 
-    /* ── TRAINING & CERTS ── */
-    #training { background: var(--surface); }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-    .col-label {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
-    }
-    .training-item {
-      display: flex; gap: 18px; padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .training-item:last-child { border-bottom: none; }
-    .t-dot {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--accent); margin-top: 5px; flex-shrink: 0;
-    }
-    .t-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
-    .t-sub { font-size: 0.78rem; color: var(--muted); }
-    .cert-card {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 18px 20px; background: var(--bg);
-      border-left: 3px solid transparent; margin-bottom: 10px;
-      transition: border-color 0.2s;
-    }
-    .cert-card:hover { border-left-color: var(--accent); }
-    .cert-icon-box {
-      width: 36px; height: 36px; background: #eff6ff;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .cert-icon-box svg { width: 18px; height: 18px; color: var(--accent); }
-    .cert-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 3px; }
-    .cert-meta { font-size: 0.75rem; color: var(--muted); }
-
+   
     /* ── ACHIEVEMENTS ── */
     #achievements { background: var(--bg); }
     .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
@@ -298,6 +266,7 @@
       .two-col { grid-template-columns: 1fr; gap: 40px; }
     }
     @media (max-width: 600px) {
+
       .hero-name { font-size: 2.6rem; }
     }
   </style>
@@ -556,54 +525,83 @@
 
     </div>
   </section>
+<!-- TRAINING & CERTS -->
+<section id="training">
+  <div class="section-label reveal">Learning</div>
+  <h2 class="section-title reveal">Training &amp; Certifications</h2>
 
-  <!-- TRAINING & CERTS -->
-  <section id="training">
-    <div class="section-label reveal">Learning</div>
-    <h2 class="section-title reveal">Training &amp; Certifications</h2>
-    <div class="two-col">
-      <div class="reveal">
-        <div class="col-label">Training</div>
+  <div class="two-col">
+
+    <!-- TRAINING -->
+    <div class="reveal">
+      <div class="col-label">Training</div>
+
+      <!-- ✅ WRAPPER ADDED -->
+      <div class="training-wrapper">
+
         <div class="training-item">
           <div class="t-dot"></div>
           <div>
-            <div class="t-title">Java DSA Trainee &mdash; Cipher School</div>
-            <div class="t-sub">Jun 2025 &ndash; Jul 2025 &nbsp;&middot;&nbsp; Arrays, Trees, Graphs, Sorting, OOP, Algorithmic Thinking</div>
+            <div class="t-title">Java DSA Trainee — Cipher School</div>
+            <div class="t-sub">
+              Jun 2025 – Jul 2025 · Arrays, Trees, Graphs, Sorting, OOP, Algorithmic Thinking
+            </div>
           </div>
         </div>
+
       </div>
-      <div class="reveal">
-        <div class="col-label">Certifications</div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="reveal">
+      <div class="col-label">Certifications</div>
+
+      <!-- ✅ WRAPPER ADDED -->
+      <div class="cert-wrapper">
+
         <div class="cert-card">
           <div class="cert-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+            </svg>
           </div>
           <div>
             <div class="cert-name">Master Generative AI &amp; Tools</div>
-            <div class="cert-meta">Udemy &nbsp;&middot;&nbsp; Aug 2025</div>
+            <div class="cert-meta">Udemy · Aug 2025</div>
           </div>
         </div>
+
         <div class="cert-card">
           <div class="cert-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M9 9h6M9 12h6M9 15h4"/>
+            </svg>
           </div>
           <div>
             <div class="cert-name">Software Engineering: Implementation &amp; Testing</div>
-            <div class="cert-meta">Coursera &nbsp;&middot;&nbsp; May 2024</div>
+            <div class="cert-meta">Coursera · May 2024</div>
           </div>
         </div>
+
         <div class="cert-card">
           <div class="cert-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
           </div>
           <div>
             <div class="cert-name">Responsive Web Design Certification</div>
-            <div class="cert-meta">freeCodeCamp &nbsp;&middot;&nbsp; Aug 2023</div>
+            <div class="cert-meta">freeCodeCamp · Aug 2023</div>
           </div>
         </div>
+
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- ACHIEVEMENTS -->
   <section id="achievements">

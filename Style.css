@@ -176,7 +176,26 @@ nav {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
-/* 🚀 MOBILE SWIPE PROJECTS (FULL CARD FIT) */
+/* GLOBAL FIX */
+* {
+  box-sizing: border-box;
+}
+
+/* ── DESKTOP TRAINING GRID ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+/* 🔥 FIX RESPONSIVE CONFLICT */
+@media (max-width: 900px) {
+  .two-col {
+    display: block;   /* ✅ FIXED (no grid conflict) */
+  }
+}
+
+/* 🚀 MOBILE SWIPE PROJECTS */
 @media (max-width: 768px) {
 
   .projects-grid {
@@ -184,17 +203,156 @@ nav {
     overflow-x: auto;
     gap: 16px;
     scroll-snap-type: x mandatory;
-    padding: 0 16px;   /* spacing from screen edges */
+    padding: 0 16px;
   }
 
   .project-card {
-    flex: 0 0 100%;   /* 🔥 FULL WIDTH */
+    flex: 0 0 100%;
     max-width: 100%;
-    scroll-snap-align: center;  /* center card */
+    scroll-snap-align: center;
     border-radius: 12px;
   }
 
   .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+}
+/* ── TRAINING & CERTS ── */
+
+#training {
+  background: var(--surface);
+}
+
+/* DESKTOP LAYOUT */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+/* SECTION LABEL */
+.col-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* TRAINING ITEM */
+.training-item {
+  display: flex;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.training-item:last-child {
+  border-bottom: none;
+}
+
+.t-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.t-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.t-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* CERT CARD */
+.cert-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  background: var(--bg);
+  border-left: 3px solid transparent;
+  margin-bottom: 10px;
+  transition: border-color 0.2s;
+}
+
+.cert-card:hover {
+  border-left-color: var(--accent);
+}
+
+.cert-icon-box {
+  width: 36px;
+  height: 36px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-icon-box svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.cert-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.cert-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* 🔥 RESPONSIVE FIX (IMPORTANT) */
+@media (max-width: 900px) {
+  .two-col {
+    display: block;
+  }
+}
+
+/* 🚀 MOBILE SWIPE (MATCH PROJECT CARDS) */
+@media (max-width: 768px) {
+
+  .training-wrapper,
+  .cert-wrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    padding: 0 16px;
+  }
+
+  /* 🔥 SAME SIZE AS PROJECT CARDS */
+  .training-item,
+  .cert-card {
+    display: block;              /* 🔥 RESET FLEX */
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    scroll-snap-align: center;
+
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .training-wrapper::-webkit-scrollbar,
+  .cert-wrapper::-webkit-scrollbar {
     display: none;
   }
 }

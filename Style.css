@@ -199,6 +199,9 @@ nav {
     display: none;
   }
 }
+.projects-grid {
+  scroll-behavior: smooth;
+}
 
 
 }

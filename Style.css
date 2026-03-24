@@ -131,8 +131,7 @@ nav {
   color: var(--accent);
 }
 
-
-/* 📱 MOBILE */
+/* 📱 MOBILE NAV */
 @media (max-width: 768px) {
 
   .menu-toggle {
@@ -161,11 +160,14 @@ nav {
   .nav-links.active {
     right: 0;
   }
+}
 
-  .nav-links a.active {
+/* 🔥 ACTIVE LINK */
+.nav-links a.active {
   color: var(--accent);
 }
 
+/* ✨ HERO ANIMATION */
 .hero-name {
   animation: fadeUp 1s ease forwards;
 }
@@ -174,34 +176,25 @@ nav {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* 📱 MOBILE card swip  */
-/* MOBILE SWIPE PROJECTS */
+/* 🚀 MOBILE SWIPE PROJECTS (FULL CARD FIT) */
 @media (max-width: 768px) {
 
   .projects-grid {
-    display: flex;
+    display: flex !important;
     overflow-x: auto;
     gap: 16px;
     scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
+    padding: 0 16px;   /* spacing from screen edges */
   }
 
   .project-card {
-    min-width: 85%;
-    flex-shrink: 0;
-    scroll-snap-align: start;
+    flex: 0 0 100%;   /* 🔥 FULL WIDTH */
+    max-width: 100%;
+    scroll-snap-align: center;  /* center card */
     border-radius: 12px;
   }
 
-  /* hide scrollbar */
   .projects-grid::-webkit-scrollbar {
     display: none;
   }
-}
-.projects-grid {
-  scroll-behavior: smooth;
-}
-
-
 }

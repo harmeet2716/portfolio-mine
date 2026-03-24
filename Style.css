@@ -358,3 +358,92 @@ nav {
     display: none;
   }
 }
+
+
+/* ── SKILLS SECTION ── */
+
+#skills {
+  background: var(--surface);
+}
+
+/* GRID (CARDS) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+}
+
+/* CARD */
+.skill-card {
+  background: var(--bg);
+  padding: 28px 26px;
+  border-top: 2px solid transparent;
+  transition: border-color 0.25s;
+}
+
+.skill-card:hover {
+  border-top-color: var(--accent);
+}
+
+/* LABEL */
+.skill-card-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* 🐝 PERFECT NO-GAP HONEYCOMB */
+@media (min-width: 900px) {
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .skill-icon {
+    width: 80px;
+    height: 92.4px;   /* 🔥 exact hex ratio */
+
+    margin: -26px 0;  /* 🔥 REMOVE ALL GAPS */
+
+    clip-path: polygon(
+      25% 6.7%, 75% 6.7%,
+      100% 50%,
+      75% 93.3%, 25% 93.3%,
+      0% 50%
+    );
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease;
+  }
+
+  /* 🔥 PERFECT OFFSET */
+  .skill-icon:nth-child(odd) {
+    transform: translateY(46.2px);
+  }
+
+  /* HOVER */
+  .skill-icon:hover {
+    transform: translateY(46.2px) scale(1.1);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(29, 78, 216, 0.2);
+    z-index: 2;
+  }
+
+  .skill-icon img {
+    width: 32px;
+    height: 32px;
+  }
+}

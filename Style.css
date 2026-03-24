@@ -1,0 +1,78 @@
+/* ICON GRID */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ICON STYLE */
+.skill-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  position: relative;
+  cursor: pointer;
+
+  /* animation base */
+  transition: all 0.35s ease;
+}
+
+/* ICON IMAGE */
+.skill-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+/* 🔥 HOVER EFFECT */
+.skill-icon:hover {
+  transform: translateY(-6px) scale(1.08);
+  border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(29, 78, 216, 0.15);
+}
+
+.skill-icon:hover img {
+  transform: scale(1.15);
+}
+
+/* 🎯 TOOLTIP */
+.skill-icon::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: var(--ink);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+/* SHOW TOOLTIP */
+.skill-icon:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* ✨ SMOOTH FLOAT ANIMATION */
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+/* subtle idle animation */
+.skill-icon {
+  animation: floatIcon 3s ease-in-out infinite;
+}

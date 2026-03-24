@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harmeet Singh — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="Style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #f7f6f3;
+      --surface: #ffffff;
+      --ink:     #1a1a1a;
+      --muted:   #6b7280;
+      --border:  #e5e3de;
+      --accent:  #1d4ed8;
+      --accent2: #0f2d6e;
+      --serif:   'DM Serif Display', serif;
+      --sans:    'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  background: rgba(247,246,243,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* keeps name left, links right */
+  padding: 16px 64px;
+}
+
+/* LEFT SIDE NAME */
+.nav-name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+/* RIGHT SIDE LINKS */
+.nav-links {
+  display: flex;
+  justify-content: flex-end;  /* force right alignment */
+  align-items: center;
+  gap: 28px; /* equal spacing between items */
+  list-style: none;
+  margin-left: auto; /* 🔥 pushes it fully to right */
+}
+
+/* LINKS STYLE */
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 100px 64px 80px;
+      background: var(--bg);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto; width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      border: 1px solid var(--accent); padding: 5px 14px;
+      border-radius: 2px; margin-bottom: 28px;
+    }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.05; letter-spacing: -0.02em;
+      margin-bottom: 18px; color: var(--ink);
+    }
+    .hero-title {
+      font-size: 1rem; font-weight: 400; color: var(--muted);
+      margin-bottom: 28px; letter-spacing: 0.01em;
+    }
+    .hero-desc {
+      font-size: 1rem; line-height: 1.75; color: #4b5563;
+      max-width: 480px; margin-bottom: 44px;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 30px; background: var(--accent); color: #fff;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none; border: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 30px; background: transparent; color: var(--ink);
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1.5px solid var(--ink); transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+
+    /* ABOUT SECTION */
+#about {
+  background: var(--surface);
+}
+
+.about-container {
+  max-width: 800px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* MAKE IMAGE CIRCLE */
+.hero-photo-frame {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.hero-photo-frame::before {
+  border-radius: 50%;
+}
+
+.hero-photo-frame img {
+  border-radius: 50%;
+}
+    /* Photo */
+    .hero-photo-wrap {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .hero-photo-frame {
+      position: relative; width: 360px; height: 420px;
+    }
+    .hero-photo-frame::before {
+      content: ''; position: absolute;
+      top: 14px; left: 14px; right: -14px; bottom: -14px;
+      border: 2px solid var(--accent); z-index: 0;
+    }
+    .hero-photo-frame img {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      display: block; filter: grayscale(8%);
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 96px 64px; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.01em; margin-bottom: 56px; color: var(--ink);
+    }
+    .divider { width: 48px; height: 2px; background: var(--accent); margin: 16px 0 48px; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--surface); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; }
+    .skill-card {
+      background: var(--bg); padding: 28px 26px;
+      border-top: 2px solid transparent;
+      transition: border-color 0.25s;
+    }
+    .skill-card:hover { border-top-color: var(--accent); }
+    .skill-card-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      font-size: 0.78rem; font-weight: 500;
+      padding: 4px 11px; border: 1px solid var(--border);
+      color: var(--ink); background: var(--surface);
+      transition: all 0.2s;
+    }
+    .skill-tag:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2px; }
+    .project-card {
+      background: var(--surface); padding: 36px 32px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { border-bottom-color: var(--accent); transform: translateY(-4px); }
+    .project-index {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+    .project-name { font-family: var(--serif); font-size: 1.35rem; margin-bottom: 14px; color: var(--ink); }
+    .project-desc { font-size: 0.88rem; line-height: 1.72; color: #6b7280; margin-bottom: 22px; flex: 1; }
+    .project-desc li { margin-left: 16px; margin-bottom: 5px; }
+    .tech-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+    .tech-badge {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 3px 9px;
+      background: #eff6ff; color: var(--accent); border: 1px solid #bfdbfe;
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 13px; }
+    .project-link svg { width: 13px; height: 13px; }
+
+    /* ── TRAINING & CERTS ── */
+    #training { background: var(--surface); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    .col-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
+    }
+    .training-item {
+      display: flex; gap: 18px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .training-item:last-child { border-bottom: none; }
+    .t-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent); margin-top: 5px; flex-shrink: 0;
+    }
+    .t-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .t-sub { font-size: 0.78rem; color: var(--muted); }
+    .cert-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 18px 20px; background: var(--bg);
+      border-left: 3px solid transparent; margin-bottom: 10px;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-left-color: var(--accent); }
+    .cert-icon-box {
+      width: 36px; height: 36px; background: #eff6ff;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cert-icon-box svg { width: 18px; height: 18px; color: var(--accent); }
+    .cert-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 3px; }
+    .cert-meta { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── ACHIEVEMENTS ── */
+    #achievements { background: var(--bg); }
+    .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+    .ach-card {
+      background: var(--surface); padding: 32px 28px;
+      border-left: 3px solid var(--accent);
+    }
+    .ach-icon { font-size: 1.9rem; margin-bottom: 14px; }
+    .ach-title { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 10px; }
+    .ach-desc { font-size: 0.87rem; line-height: 1.65; color: var(--muted); }
+    .ach-date { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: 14px; }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--surface); }
+    .edu-list { max-width: 680px; }
+    .edu-item { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-year {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); padding-top: 4px;
+      min-width: 60px; text-align: right;
+    }
+    .edu-right {}
+    .edu-degree { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+    .edu-school { font-size: 0.88rem; color: var(--muted); margin-bottom: 8px; }
+    .edu-score {
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; padding: 3px 10px;
+      background: #eff6ff; color: var(--accent); border: 1px solid #bfdbfe;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: #0f2d6e; color: #fff;
+      text-align: center; padding: 100px 64px;
+    }
+    .contact-sub {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #93c5fd; margin-bottom: 20px;
+    }
+    .contact-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1.1; margin-bottom: 16px;
+    }
+    .contact-note { font-size: 0.95rem; color: #93c5fd; max-width: 440px; margin: 0 auto 52px; }
+    .contact-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+      color: #fff; text-decoration: none; padding: 13px 22px;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.2s;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .contact-link svg { width: 15px; height: 15px; opacity: 0.8; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 22px;
+      background: #0a1f4e; color: #4b6cb7;
+      font-size: 0.75rem; letter-spacing: 0.06em;
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+      section { padding: 72px 24px; }
+      #hero { padding: 100px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-frame { width: 260px; height: 300px; }
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero-name { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+ <ul class="nav-links">
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#training">Training</a></li>
+  <li><a href="#achievements">Wins</a></li>
+  <li><a href="#education">Education</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <div class="hero-badge"><span></span> Open to Opportunities</div>
+        <h1 class="hero-name">Harmeet<br>Singh</h1>
+        <p class="hero-title">Full-Stack Developer &nbsp;&middot;&nbsp; CSE @ LPU &nbsp;&middot;&nbsp; Java DSA</p>
+        <p class="hero-desc">
+          I build functional, fast web applications — from secure REST APIs to responsive frontends.
+          Currently pursuing B.Tech in Computer Science with hands-on projects in React, Node.js, and Java.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">
+            View Projects
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#contact" class="btn-outline">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <div class="hero-photo-frame">
+          <img src="virdi.jpg" alt="Harmeet Singh" onerror="this.style.background='#e5e7eb'"/>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--About me-->
+  <section id="about">
+  <div class="section-label reveal">Introduction</div>
+  <h2 class="section-title reveal">About Me</h2>
+
+  <div class="about-container reveal">
+    <p>
+      I am a passionate Full-Stack Developer currently pursuing B.Tech in Computer Science & Engineering at Lovely Professional University.
+      I specialize in building responsive web applications using React.js, Node.js, and modern technologies.
+    </p>
+
+    <p>
+      I have hands-on experience in developing secure APIs, working with databases, and implementing real-world projects like fitness apps,
+      CRM systems, and event reminder systems.
+    </p>
+
+    <p>
+      I am also skilled in Data Structures & Algorithms using Java and enjoy solving complex problems efficiently.
+      I believe in continuous learning and collaborative development.
+    </p>
+  </div>
+</section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+  <div class="section-label reveal">Expertise</div>
+  <h2 class="section-title reveal">Skills & Technologies</h2>
+
+  <div class="skills-grid">
+    <!-- your existing skill cards -->
+     <!-- Languages -->
+  <div class="skill-card reveal">
+    <div class="skill-card-label">Languages</div>
+    <div class="skill-tags">
+      <div class="skill-icon" data-name="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+      </div>
+      <div class="skill-icon" data-name="C++">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg">
+      </div>
+      <div class="skill-icon" data-name="Java">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+      </div>
+      <div class="skill-icon" data-name="JavaScript">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+      </div>
+      <div class="skill-icon" data-name="PHP">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Frameworks -->
+  <div class="skill-card reveal">
+    <div class="skill-card-label">Frameworks</div>
+    <div class="skill-tags">
+      <div class="skill-icon" data-name="React">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+      </div>
+      <div class="skill-icon" data-name="Node.js">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+      </div>
+      <div class="skill-icon" data-name="Express">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg">
+      </div>
+      <div class="skill-icon" data-name="Tailwind">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg">
+      </div>
+      <div class="skill-icon" data-name="TypeScript">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Databases -->
+  <div class="skill-card reveal">
+    <div class="skill-card-label">Databases</div>
+    <div class="skill-tags">
+      <div class="skill-icon" data-name="MySQL">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+      </div>
+      <div class="skill-icon" data-name="MongoDB">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tools -->
+  <div class="skill-card reveal">
+    <div class="skill-card-label">Tools</div>
+    <div class="skill-tags">
+      <div class="skill-icon" data-name="Git">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+      </div>
+      <div class="skill-icon" data-name="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+      </div>
+      <div class="skill-icon" data-name="Postman">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg">
+      </div>
+      <div class="skill-icon" data-name="VS Code">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg">
+      </div>
+      <div class="skill-icon" data-name="Arduino">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+  
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label reveal">Work</div>
+    <h2 class="section-title reveal">Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-index">01 &mdash; Web App</div>
+        <h3 class="project-name">FitPro App</h3>
+        <ul class="project-desc">
+          <li>Responsive fitness web app with JWT-based authentication.</li>
+          <li>REST APIs for user management, workout tracking, and profile updates.</li>
+          <li>Full-stack: React.js + Node.js + Express.js + MongoDB.</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-badge">React.js</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">MongoDB</span>
+          <span class="tech-badge">JWT</span>
+        </div>
+        <a class="project-link" href="https://github.com/harmeet2716" target="_blank">
+          GitHub
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-index">02 &mdash; Java / DSA</div>
+        <h3 class="project-name">Console Event Reminder</h3>
+        <ul class="project-desc">
+          <li>Real-time notification system in Java with PriorityQueue scheduling.</li>
+          <li>Multithreading for continuous time monitoring and reminders.</li>
+          <li>Built during Java DSA training at Cipher School.</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-badge">Java</span>
+          <span class="tech-badge">Collections</span>
+          <span class="tech-badge">Multithreading</span>
+          <span class="tech-badge">OOP</span>
+        </div>
+        <a class="project-link" href="https://github.com/harmeet2716" target="_blank">
+          GitHub
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-index">03 &mdash; CRM System</div>
+        <h3 class="project-name">ShopCRM</h3>
+        <ul class="project-desc">
+          <li>CRM with inventory management, sales tracking, profit &amp; tax computation.</li>
+          <li>Token-based authentication and JWT session management.</li>
+          <li>React.js frontend + PHP + MySQL backend.</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-badge">React.js</span>
+          <span class="tech-badge">PHP</span>
+          <span class="tech-badge">MySQL</span>
+          <span class="tech-badge">JWT</span>
+        </div>
+        <a class="project-link" href="https://github.com/harmeet2716" target="_blank">
+          GitHub
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-index">04 &mdash; IoT / Hardware</div>
+        <h3 class="project-name">RC Car Project</h3>
+        <ul class="project-desc">
+          <li>Designed and built a functional RC car using Arduino/ESP32 + L298N driver.</li>
+          <li>Wireless Bluetooth control via a custom mobile controller app.</li>
+          <li>Integrated sensors for obstacle detection and performance monitoring.</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">ESP32</span>
+          <span class="tech-badge">Bluetooth</span>
+          <span class="tech-badge">IoT</span>
+        </div>
+        <span class="project-link" style="opacity:0.4; cursor:default;">Hardware Project</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRAINING & CERTS -->
+  <section id="training">
+    <div class="section-label reveal">Learning</div>
+    <h2 class="section-title reveal">Training &amp; Certifications</h2>
+    <div class="two-col">
+      <div class="reveal">
+        <div class="col-label">Training</div>
+        <div class="training-item">
+          <div class="t-dot"></div>
+          <div>
+            <div class="t-title">Java DSA Trainee &mdash; Cipher School</div>
+            <div class="t-sub">Jun 2025 &ndash; Jul 2025 &nbsp;&middot;&nbsp; Arrays, Trees, Graphs, Sorting, OOP, Algorithmic Thinking</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="col-label">Certifications</div>
+        <div class="cert-card">
+          <div class="cert-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Master Generative AI &amp; Tools</div>
+            <div class="cert-meta">Udemy &nbsp;&middot;&nbsp; Aug 2025</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Software Engineering: Implementation &amp; Testing</div>
+            <div class="cert-meta">Coursera &nbsp;&middot;&nbsp; May 2024</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Responsive Web Design Certification</div>
+            <div class="cert-meta">freeCodeCamp &nbsp;&middot;&nbsp; Aug 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-label reveal">Recognition</div>
+    <h2 class="section-title reveal">Achievements</h2>
+    <div class="ach-grid">
+      <div class="ach-card reveal">
+        <div class="ach-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8"><path d="M12 15c3.31 0 6-2.69 6-6H6c0 3.31 2.69 6 6 6z"/><path d="M6 9V5h12v4"/><path d="M8 21h8M12 15v6"/></svg>
+        </div>
+        <div class="ach-title">4th Rank &mdash; RC Car Racing</div>
+        <div class="ach-desc">Secured 4th place at RISK competition, Lovely Professional University, with a self-designed and built remote-controlled car.</div>
+        <div class="ach-date">Oct 2023 &middot; LPU</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M8 14v7M16 14v7M5 21h14"/></svg>
+        </div>
+        <div class="ach-title">District Zonal Cricket &mdash; Top Wicket Taker</div>
+        <div class="ach-desc">Represented the District Zonal Cricket Team and recorded the highest number of wickets in the tournament.</div>
+        <div class="ach-date">Nov 2022</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label reveal">Background</div>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="edu-list">
+      <div class="edu-item reveal">
+        <div class="edu-year">2023<br>Present</div>
+        <div class="edu-right">
+          <div class="edu-degree">B.Tech &mdash; Computer Science &amp; Engineering</div>
+          <div class="edu-school">Lovely Professional University, Punjab</div>
+          <span class="edu-score">CGPA: 7.31</span>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-year">2022<br>2023</div>
+        <div class="edu-right">
+          <div class="edu-degree">Intermediate (Class XII)</div>
+          <div class="edu-school">Delhi Public School, Bareilly</div>
+          <span class="edu-score">89%</span>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-year">2020<br>2021</div>
+        <div class="edu-right">
+          <div class="edu-degree">Matriculation (Class X)</div>
+          <div class="edu-school">Golden Flower Sen. Sec. School, PaliaKalan</div>
+          <span class="edu-score">78%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="contact-sub reveal">Let&#39;s Work Together</p>
+    <h2 class="contact-heading reveal">Get In Touch</h2>
+    <p class="contact-note reveal">Open to internships, full-time roles, and collaborations. Feel free to reach out.</p>
+    <div class="contact-grid reveal">
+      <a href="mailto:virdiharmeet08@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        virdiharmeet08@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/harmeet-virdi" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v8M7 7v.01M11 10v8M11 14a3 3 0 0 1 6 0v4"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/harmeet2716" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="tel:+916306987501" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2z"/></svg>
+        +91 6306987501
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    Designed &amp; built by Harmeet Singh &nbsp;&middot;&nbsp; 2025
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 70);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    
+  </script>
+
+</body>
+</html>

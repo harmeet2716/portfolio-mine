@@ -161,4 +161,44 @@ nav {
   .nav-links.active {
     right: 0;
   }
+
+  .nav-links a.active {
+  color: var(--accent);
+}
+
+.hero-name {
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 MOBILE card swip  */
+/* MOBILE SWIPE PROJECTS */
+@media (max-width: 768px) {
+
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .project-card {
+    min-width: 85%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    border-radius: 12px;
+  }
+
+  /* hide scrollbar */
+  .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
 }

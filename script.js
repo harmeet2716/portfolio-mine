@@ -28,3 +28,26 @@ const reveals = document.querySelectorAll('.reveal');
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => io.observe(el));
+
+
+//Avtive nav bar 
+const sections = document.querySelectorAll("section");
+const navLinksAll = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinksAll.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});

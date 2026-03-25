@@ -391,56 +391,7 @@ nav {
   margin-bottom: 20px;
 }
 
-/* 🐝 DESKTOP HONEYCOMB (INSIDE CARDS) */
-@media (min-width: 900px) {
 
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 320px;
-    margin: 0 auto;
-  }
-
-  .skill-tags .skill-icon {
-    width: 80px;
-    height: 92.4px;
-
-    margin: -26px 0;
-
-    clip-path: polygon(
-      25% 6.7%, 75% 6.7%,
-      100% 50%,
-      75% 93.3%, 25% 93.3%,
-      0% 50%
-    );
-
-    background: var(--surface);
-    border: 1px solid var(--border);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: all 0.3s ease;
-  }
-
-  .skill-tags .skill-icon:nth-child(odd) {
-    transform: translateY(46px);
-  }
-
-  .skill-tags .skill-icon:hover {
-    transform: translateY(46px) scale(1.1);
-    border-color: var(--accent);
-    box-shadow: 0 10px 20px rgba(29, 78, 216, 0.2);
-    z-index: 2;
-  }
-
-  .skill-tags .skill-icon img {
-    width: 32px;
-    height: 32px;
-  }
-}
 /* ───────────── DEFAULT (DESKTOP) ───────────── */
 
 /* show normal skills */
